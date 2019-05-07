@@ -71,3 +71,45 @@ def  create_n_gram(n,list_type,target_string):
 
 print(create_n_gram(2,'word',q5_string))
 print(create_n_gram(2,'chara',q5_string))
+
+# q6
+q6_s1 = "paraparaparadise"
+q6_s2 = "paragraph"
+def  create_n_gram(n,list_type,target_string):
+    """
+    n-gram関数
+
+    文字列をオプション引数list_typeで文字gramと単語gramのどちらかを作成する
+    単語gram: I am an NLper -> I am, am an, an NLper
+    文字gram: I am an NLper -> I , a,am,m , a,an,n , N,NL,Lp,pe,er,r  
+
+    @return list
+    """
+    s_list = []
+    if list_type == 'word':
+        words = target_string.split(' ')
+        for i in range(0, len(words)-n+1):
+            s_list.append(words[i:i+n])
+    else :
+        for i in range(0, len(target_string)-n+1):
+            s_list.append(target_string[i:i+n])
+    return s_list
+
+x = create_n_gram(2,'chara',q6_s1)
+y = create_n_gram(2,'chara',q6_s2)
+
+x = set(x)
+y = set(y)
+print(x,y)
+xy_union = x | y
+xy_intersection = x&y
+xy_difference = x-y
+
+print(xy_union,xy_intersection,xy_difference)
+
+if 'se' in xy_union:
+    print('It founds se in xy_union.')
+
+if 'se' in xy_intersection:
+    print('It founds se in xy_intersection.')
+
