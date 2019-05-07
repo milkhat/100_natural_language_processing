@@ -113,3 +113,30 @@ if 'se' in xy_union:
 if 'se' in xy_intersection:
     print('It founds se in xy_intersection.')
 
+# q7
+def get_message(x,y,z):
+    message = str(x) + '時の' + y + 'は' + str(z)
+    return message
+
+print(get_message(12,'気温',22.4))
+
+# q8
+import string
+string1 = "I wish I were a bird!"
+
+def cipher(target_string):
+    answer_list = ''
+    for i in target_string:
+        if i in string.ascii_lowercase:
+            target_code = ord(i)
+            answer_list = answer_list + chr(219-target_code)
+        else :
+            answer_list = answer_list + i
+    return answer_list
+
+# 暗号化
+print(string1 + ':' + cipher(string1))
+
+# 復号化
+print(string1 + ':' + cipher(cipher(string1)))
+
