@@ -45,3 +45,29 @@ for i,v in enumerate(q4_words):
         answer_map[i]=v[:2]
 
 print(answer_map)
+
+# q5
+q5_string = "I am an NLPer"
+
+def  create_n_gram(n,list_type,target_string):
+    """
+    n-gram関数
+
+    文字列をオプション引数list_typeで文字gramと単語gramのどちらかを作成する
+    単語gram: I am an NLper -> I am, am an, an NLper
+    文字gram: I am an NLper -> I , a,am,m , a,an,n , N,NL,Lp,pe,er,r  
+
+    @return list
+    """
+    s_list = []
+    if list_type == 'word':
+        words = target_string.split(' ')
+        for i in range(0, len(words)-n+1):
+            s_list.append(words[i:i+n])
+    else :
+        for i in range(0, len(target_string)-n+1):
+            s_list.append(target_string[i:i+n])
+    return s_list
+
+print(create_n_gram(2,'word',q5_string))
+print(create_n_gram(2,'chara',q5_string))
