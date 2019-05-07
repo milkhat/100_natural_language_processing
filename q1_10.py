@@ -37,16 +37,9 @@ q4_words = q4_words.replace(',','')
 q4_words = q4_words.split(' ')
 
 answer_map = {}
+num_list = [1, 5, 6, 7, 8, 9, 15, 16, 19]
 for i,v in enumerate(q4_words):
-    if i == 0 or i==4:
-        answer_map[i]=v[:1]
-    elif i == 5 or i == 6:
-        answer_map[i]=v[:1]
-    elif i == 7 or i == 8:
-        answer_map[i]=v[:1]
-    elif i == 14 or i==15:
-        answer_map[i]=v[:1]
-    elif i == 18:
+    if i+1 in num_list:
         answer_map[i]=v[:1]
     else:
         answer_map[i]=v[:2]
